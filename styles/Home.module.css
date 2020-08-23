@@ -1,14 +1,16 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* Hide scrollbar
+  scrollbar-width: none;  /* Firefox */
+  /* FIXME: To hide scrollbar in chrome we need to use pure selectos wich is currently not suported by nextjs */
 }
-
 .main {
-  padding: 5rem 0;
+  /* padding: 5rem 0; */
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -120,4 +122,19 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+/* LANDING PAGE DEFINED */
+.section {
+  width: 100%;
+  height: 100vh;
+  border: 1px solid black;
+}
+.header {
+  height: 20vh;
+  border: 1px solid red;
+}
+div.pane1 {
+  height: 80vh;
+  border: 1px solid blue;
 }

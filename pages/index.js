@@ -1,15 +1,37 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home(){
   return (
     <div className={styles.container}>
+      {/* This will be placed in head outisde document's body*/}
       <Head>
-        <title>Create Next App</title>
+        <title>GPS Latam</title>
         <link rel="icon" href="/favicon.ico" />
+        <style href="../public/pure.css"></style>
       </Head>
 
+      {/* Regular body content */}
       <main className={styles.main}>
+        <section className={styles.section}>
+          {/* Header */}
+          <header className={styles.header}>
+            Header
+          </header>
+          {/* Pane 1 */}
+          <div className={styles.pane1}>
+            Pane 1
+          </div>
+        </section>
+        {/* Pane 2 */}
+        <section className={styles.section}>
+          Pane 2
+        </section>
+        {/* Pane 3 */}
+        {/* Pane 4 */}
+        {/* Pane 5 */}
+        {/* Pane 6 */}
+        {/* Footer */}
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>

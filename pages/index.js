@@ -8,7 +8,9 @@ export default function Home(){
       <Head>
         <title>GPS Latam</title>
         <link rel="icon" href="/favicon.ico" />
-        <style href="../public/pure.css"></style>
+        <link rel="stylesheet" href="/styles/landing.css" />
+        {/* Acumin-pro font */}
+        <link rel="stylesheet" href="https://use.typekit.net/rir3mhi.css" />
       </Head>
 
       {/* Regular body content */}
@@ -16,72 +18,59 @@ export default function Home(){
         <section className={styles.section}>
           {/* Header */}
           <header className={styles.header}>
-            Header
+            <img src="/images/logo-header.png" alt="GPS Latam logo" className={styles.logo_header} />
+            <div className={styles.link_list}>
+              <a href="#inicio">Inicio</a>
+              <a href="#plataforma">Plataforma</a>
+              <a href="#precio">Precio</a>
+              <a href="#videos">Videos</a>
+              <a href="#contacto">Contacto</a>
+            </div>
           </header>
           {/* Pane 1 */}
-          <div className={styles.pane1}>
+          <div id="inicio">
             Pane 1
+            <div className="">
+            </div>
           </div>
         </section>
         {/* Pane 2 */}
-        <section className={styles.section}>
+        <section id="plataforma" className={styles.section}>
           Pane 2
         </section>
         {/* Pane 3 */}
+        <section id="precio" className={styles.section}>
+          Pane 3
+        </section>
         {/* Pane 4 */}
+        <section id="videos" className={styles.section}>
+          Pane 4
+        </section>
         {/* Pane 5 */}
+        <section id="contacto" className={styles.section}>
+          Pane 5
+        </section>
         {/* Pane 6 */}
+        <section id="comentarios" className={styles.section}>
+          Pane 6
+        </section>
         {/* Footer */}
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <footer className={styles.footer}>
+          <img src="/images/logo-footer.png" alt="GPS Latam logo" className={styles.logo_footer+" "+styles.item} />
+          <div className={styles.contacto}>
+            <div className={styles.item}>
+              <img src="/images/phone-icon.png" alt="Phone icon" /> +51 961 995 146
+            </div>
+            <div className={styles.item}>
+              <img src="/images/mail-icon.png" alt="Mail icon" /> gpslatam@gmail.com
+            </div>
+          </div>
+          <div className={styles.item}>
+            <img src="/images/fb-icon.png" alt="Facebook logo" /> |&nbsp;
+            <img src="/images/ig-icon.png" alt="Instagram logo" />
+          </div>
+        </footer>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
 }

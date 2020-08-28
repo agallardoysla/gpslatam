@@ -17,13 +17,7 @@
 }
 
 
-/* SECTION && HEADER && FOOTER */
-.section {
-  width: 100%;
-  height: 100vh;
-  border: 1px solid gray;
-}
-
+/* HEADER && FOOTER && SECTION */
 .header {
   background-color: #d8dadeff;
   width: 100%;
@@ -69,7 +63,7 @@
   display: inline-block;
   padding: 0 25px;
 }
-.footer img {
+.footer .item img {
   height: 40px;
 }
 .footer * {
@@ -80,54 +74,321 @@
   height: 100px;
 }
 
+.section {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.section_container {
+  height: 100%;
+}
+
+.half_1,
+.half_2 {
+  height: 100%;
+  width: 50%;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  vertical-align: top;
+  /* align-items: center; */
+}
+.half_1 img,
+.half_2 img {
+  position: absolute;
+  height: 90%;
+}
+
 
 /* PANES */
 #inicio {
   /* Special case: first panel only get's 80% of total screen height */
   height: 80vh;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fpane1.png?alt=media&token=85c7c66b-b903-43f2-a561-26eff590f2b6');
+}
+#inicio .half_1 img {
+  right: 0;
+  bottom: 0;
+}
+#inicio .half_2 img {
+  bottom: 0;
+}
+
+#plataforma {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fpane2.png?alt=media&token=44b84db7-d4d1-44a7-9721-5c47285eeb1a');
+}
+#plataforma .half_2 {
+  float: right;
+}
+#plataforma .half_1 img {
+  bottom: 0;
+}
+#plataforma .half_2 div {
+  color: white;
+  padding-right: 10%;
+  text-align: right;
+}
+#plataforma .half_2 div h1 {
+  font-size: 4.2em;
+}
+#plataforma .half_2 div p {
+  margin-top: -40px;
+  font-size: 2.5em;
+}
+#plataforma .half_2 div li {
+  font-size: 2.3em;
+}
+#plataforma .half_2 li {
+  list-style: square;
+}
+
+#precio {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fpane3.png?alt=media&token=84f90097-95c7-4fa7-86f0-1fe39720af29');
+}
+#precio .half_1 {
+  display: inline-block;
+  padding: 0px 10%;
+  margin-top: 3.5%;
+}
+#precio .half_1 img {
+  /* reset images properties */
+  position: inherit;
+  height: inherit;
+}
+#precio .half_1 .square {
+  background-color: #fccf00ff;
+  height: 25%;
+  padding: 25px;
+  font-size: 2em;
+  border-radius: 25px;
+}
+#precio .half_1 .square .square_text {
+  display: inline-block;
+  font-size: 1.2em;
+  width: 60%;
+  float: left;
+}
+#precio .half_1 .square .square_image {
+  text-align: right;
+  display: inline-block;
+  height: 70%;
+  max-width: 30%;
+  filter: brightness(0);
+  margin: 5%;
+}
+#precio .half_1 .divider {
+  height: 8%;
+  margin-top: -6%;
+}
+#precio .half_1 .divider .divider_img {
+  width: 80px;
+  height: 80px;
+}
+#precio .half_2 .half_21 {
+  height: 60%;
+  top: 25%;
+  left: -3%;
+}
+#precio .half_2 .half_22 {
+  bottom: 0;
+  right: 5%;
+}
+
+#contacto {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fpane5.png?alt=media&token=ec8cfd6d-7260-422e-a606-0806d2394beb');
 }
 
 
-/* OTHERS */
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+@media (max-width: 1200px) {
+  /* reset height of section */
+  .half_1,
+  .half_2 {
+    width: 100%;
+  }
 
-  max-width: 800px;
-  margin-top: 3rem;
+  /* PANE 1 */
+  #inicio {
+    /* remove background from .section */
+    background: inherit;
+    /* reset height of .section */
+    height: auto;
+  }
+  #inicio .half_1 {
+    /* change height from .section to .half_1 */
+    height: 80vh;
+    /* change background image of section #1 */
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fpane1.png?alt=media&token=85c7c66b-b903-43f2-a561-26eff590f2b6');
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #inicio .half_1 img {
+    /* center car image */
+    right: unset;
+  }
+  #inicio .half_2 {
+    /* set full height to .half_2 */
+    height: 100vh;
+  }
+
+  /* PANE 2 */
+  #plataforma {
+    /* remove background from .section */
+    background: inherit;
+    /* reset height of .section */
+    height: auto;
+  }
+  #plataforma .half_2 {
+    float: none;
+    height: auto;
+    /* change background image of section #1 */
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fpane2.png?alt=media&token=44b84db7-d4d1-44a7-9721-5c47285eeb1a');
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px 2% 10% 2%;
+  }
+  #plataforma .half_1 {
+    /* set full height to .half_2 */
+    height: 60vh;
+  }
+  #plataforma .half_1 img {
+    height: 115%;
+  }
+  #plataforma .half_2 div {
+    text-align: center;
+    padding: unset;
+  }
+
+  /* PANE 3 */
+  #precio {
+    /* reset height of .section */
+    height: auto;
+    background-position-x: left;
+  }
+  #precio .half_1 {
+    /* change height from .section to .half_1 */
+    height: 100vh;
+    padding: 0px 20%;
+  }
+  #precio .half_2 {
+    /* set full height to .half_2 */
+    height: 60vh;
+  }
+  #precio .half_2 .half_21 {
+    height: 80%;
+    top: 10%;
+    left: 10%;
+  }
+  #precio .half_2 .half_22 {
+    right: 0;
+    height: 140%;
+  }
+  #precio .half_1 .divider {
+    margin-top: -5%;
+  }
+
+  /* FOOTER */
+  .footer {
+    flex-direction: column;
+  }
+  .footer .logo_footer {
+    width: fit-content;
+  }
 }
-.card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+
+
+@media (max-width: 992px) {
+  /* MENU */
+  
+
+  /* FOOTER */
+  .footer .contacto {
+    position: relative;
+    margin-top: 15px;
+  }
+  .footer .contacto .item {
+    width: 100%;
+  }
+  .footer .contacto #social {
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-.card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
+
+
 
 @media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+  /* Fix #inicio images size */
+  #inicio .half_1 {
+    height: 50vh;
+  }
+  #inicio .half_2 {
+    height: 60vh;
+  }
+  /* Fix .half_1 background size and repeat */
+  #inicio .half_1 {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Fix #plataforma text size */
+  #plataforma .half_2 div {
+    transform: scale(.9);
+  }
+  /* Fix #precio hand image size */
+  #plataforma .half_1 img {
+    height: 105%;
+  }
+  /* Fix .half_2 background size and repeat */
+  #plataforma .half_2 {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Fix #precio .square size */
+  #precio .half_1 {
+    transform: scale(.9);
+    padding: 0px;
+    height: unset;
+  }
+  #precio .half_1 .square {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #precio .half_1 .square .square_image {
+    margin: 1%;
+  }
+  #precio .half_1 .divider {
+    margin-top: 1%;
+  }
+  /* Fix #precio .half_2 images sizes */
+  #precio .half_2 {
+    height: 40vh;
+  }
+  #precio .half_2 .half_21 {
+    left: 2%;
+  }
+  #precio .half_2 .half_22 {
+    height: 120%;
+  }
+
+  /* FOOTER */
+  .footer .contacto {
+    position: unset;
+  }
+  .footer .contacto #social {
+    text-align: unset;
+    margin-top: 15px;
+    position: unset;
   }
 }

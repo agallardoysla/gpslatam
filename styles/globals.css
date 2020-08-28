@@ -4,6 +4,8 @@ body {
   margin: 0;
   /* Font Family */
   font-family: acumin-pro, sans-serif;
+  /* Fix right side blank space */
+  overflow-x: hidden;
 }
 
 a {
@@ -13,4 +15,6 @@ a {
 
 * {
   box-sizing: border-box;
+  /* Block user content (text, images) selection */
+  user-select: none;
 }

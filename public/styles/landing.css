@@ -109,9 +109,14 @@ input[type=checkbox]:checked ~ ul > a {
   text-align: right;
 }
 
+.logo_header_movil {
+  display: none;
+}
+
 /* small screens */
 @media screen and (max-width: 900px) {
   .logo_header_movil {
+    display: block;
     filter: invert();
     height: 80%;
     padding: 15px 0px 0px 20px;

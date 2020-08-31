@@ -26,6 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .header .logo_header {
   margin-right: 30px;
@@ -184,7 +185,6 @@
 }
 #contacto .half_1 > div {
   padding-left: 10%;
-  margin-top: 10%;
 }
 #contacto .half_1 div h1 {
   font-size: 3em;
@@ -314,12 +314,19 @@
     margin-top: -5%;
   }
 
+  /* PANE 5 */
+  /* Fix content-box propertie */
+  #contacto .half_1 > div {
+    margin-top: 0px;
+    padding-bottom: 15px;
+  }
+
   /* FOOTER */
   .footer {
     flex-direction: column;
   }
   .footer .logo_footer {
-    width: fit-content;
+    width: auto;
   }
 }
 
@@ -343,6 +350,17 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .header {
+    display: block;
+    background-color: black;
+  }
+  .header .logo_header {
+    display: none;
   }
 }
 
@@ -374,6 +392,15 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+  /* Fix text */
+  #plataforma .half_2 div h1 {
+    font-size: 3.2em;
+  }
+  #plataforma .half_2 div p,
+  #plataforma .half_2 div li {
+    font-size: 2em;
+  }
+
 
   /* Fix #precio .square size */
   #precio .half_1 {
@@ -407,6 +434,7 @@
   /* Fix #contacto image in mobile devices */
   #contacto {
     background-position-x: 30%;
+    height: auto;
   }
   #contacto .half_1 > div {
     padding-left: 5%;

@@ -39,6 +39,7 @@ function Header({}){
   return (
     <header className={styles.header}>
       <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Flogo-header.png?alt=media&token=60c48429-2110-4ddd-843f-5e2c05d64984" alt="GPS Latam logo" className={styles.logo_header} />
+      <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Flogo-footer.png?alt=media&token=eed4ca0a-045d-4730-a7cc-2afc9cad704e" alt="GPS Latam logo" className="logo_header_movil" />
       <div className="link_list">
         {/* Burger menu */}
         <input type="checkbox" id="button" />

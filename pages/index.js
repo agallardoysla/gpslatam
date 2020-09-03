@@ -1,7 +1,14 @@
-import { useEffect } from 'react'
+import { useEffect, useContext, createContext } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+
+const ContactInformation = createContext({
+  contacto_celular: "+51 961 654 321",
+  contacto_email: "gpslatam@gmail.com",
+  link_whatsapp: "https://wa.me/+51xxxxxxxxx",
+  link_email: "gpslatam@gmail.com",
+})
 
 export default function Home(){
   return (
@@ -16,7 +23,8 @@ export default function Home(){
         <link rel="stylesheet" href="/styles/landing.css" />
         {/* Acumin-pro font */}
         <link rel="stylesheet" href="https://use.typekit.net/rir3mhi.css" />
-        <script src="/js/yt-script.js"></script>
+        <script src="/js/yt.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
       </Head>
 
       {/* Regular body content */}
@@ -42,8 +50,8 @@ function Header({}){
       <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Flogo-footer.png?alt=media&token=eed4ca0a-045d-4730-a7cc-2afc9cad704e" alt="GPS Latam logo" className="logo_header_movil" />
       <div className="link_list">
         {/* Burger menu */}
-        <input type="checkbox" id="button" />
-        <label htmlFor="button"></label>
+        <input type="checkbox" id="header-button" />
+        <label htmlFor="header-button"></label>
 
         <ul>
           <Link href={"#"+styles.inicio}><a>Inicio</a></Link>
@@ -149,37 +157,85 @@ function Pane4({}){
   )
 }
 function Pane5({}){
+  const contexto = useContext(ContactInformation)
+
+  // Execute after content is rendered
+  useEffect(() => {
+    // Add functionality to hide/show contact form
+    document.getElementById('email-button').onchange = ev => {
+      document.getElementById('contact-form').style.display = ev.target.checked?"inline-block":"none"
+    }
+  }, [])
+  useEffect(() => {
+    // Initialize emailjs service
+    emailjs.init('user_PzgaERx4isvQKUCLloFHr')
+
+    // Send form as email
+    document.getElementById('c-send').onclick = ev => {
+      // Stop form submit propagation
+      ev.preventDefault()
+      // Send form content as email
+      emailjs.sendForm('test_mine_1', 'contacto_form', ev.target.parentElement)
+      .then(res => {
+        console.log("Response:", res);
+      }, er => {
+        console.log("Error:", er);
+      })
+    }
+  }, [])
+
   return (
     <section id={styles.contacto} className={styles.section}>
       <div className={styles.half_1}>
         <div>
           <h1>Contáctanos</h1>
-          <span><b>Celular: </b>{process.env.NEXT_PUBLIC_DATA_CONTACTO_CELULAR}</span>
+          <span><b>Celular: </b>{contexto.contacto_celular}</span>
           <br/>
-          <span><b>Correo electronico: </b>{process.env.NEXT_PUBLIC_DATA_CONTACTO_EMAIL}</span>
+          <span><b>Correo electronico: </b>{contexto.contacto_email}</span>
           <p>Si tienes dudas o sugerencias.</p>
-          <a target="_blank" href={process.env.NEXT_PUBLIC_DATA_CONTACTO_WSP_LINK} className={styles.wsp}>
+          <a target="_blank" href={contexto.link_whatsapp} className={styles.wsp}>
             <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fwsp-icon.png?alt=media&token=59e9e5e6-a49e-4206-8a2b-e45ff1ae58de" /><span> Escríbenos al Whatsapp</span>
           </a>
           <br/><br/>
-          <a target="_blank" href={process.env.NEXT_PUBLIC_DATA_CONTACTO_EMAIL_LINK} className={styles.email}>
-            <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Femail-icon.png?alt=media&token=f18e574f-f544-4807-a775-dde2f8060470" /><span> Enviar un correo electrónico</span>
-          </a>
+
+          {/* Checkbox behavior to show contact form */}
+          <label htmlFor="email-button" className={styles.email}>
+            <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Femail-icon.png?alt=media&token=f18e574f-f544-4807-a775-dde2f8060470" />
+            <span> Enviar un correo electrónico</span>
+          </label>
         </div>
+      </div>
+      <div className={styles.half_2}>
+        <input type="checkbox" id="email-button" /> {/* Hidden element */}
+        <form id="contact-form">
+
+          <span className={styles.h1}>Enviar un correo</span>
+
+          <input type="text" name="user_name" placeholder="Nombre" />
+          <br/>
+          <input type="email" name="user_email" placeholder="Correo electronico" />
+          <br/>
+          <textarea rows="2" name="mensaje" placeholder="Contenido">
+          </textarea>
+          <br/>
+          <button type="submit" id="c-send">Enviar</button>
+        </form>
       </div>
     </section>
   )
 }
 function Footer({}){
+  const contexto = useContext(ContactInformation)
+
   return (
     <footer className={styles.footer}>
       <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Flogo-footer.png?alt=media&token=eed4ca0a-045d-4730-a7cc-2afc9cad704e" alt="GPS Latam logo" className={styles.logo_footer+" "+styles.item} />
       <div className={styles.contacto}>
         <div className={styles.item}>
-          <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fphone-icon.png?alt=media&token=97dcec8a-f9ee-4efd-a9e8-683787f9235d" alt="Phone icon" /> {process.env.NEXT_PUBLIC_DATA_CONTACTO_CELULAR}
+          <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fphone-icon.png?alt=media&token=97dcec8a-f9ee-4efd-a9e8-683787f9235d" alt="Phone icon" /> {contexto.contacto_celular}
         </div>
         <div className={styles.item}>
-          <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fmail-icon.png?alt=media&token=ab642a9f-61b0-4530-b604-a52eae65306d" alt="Mail icon" /> {process.env.NEXT_PUBLIC_DATA_CONTACTO_EMAIL}
+          <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fmail-icon.png?alt=media&token=ab642a9f-61b0-4530-b604-a52eae65306d" alt="Mail icon" /> {contexto.contacto_email}
         </div>
         <div id={styles.social} className={styles.item}>
           <a target="_blank" href="https://www.facebook.com/gaming/AN7HONY96oficial">

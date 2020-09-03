@@ -215,11 +215,45 @@
   height: 40px;
 }
 #contacto .half_1 div .email {
+  display: inline-flex;
+  align-items: center;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
   background-color: #e0030aff;
 }
 #contacto .half_1 div .email img {
+  position: unset;
+  margin-right: 15px;
   width: 40px;
   height: 32px;
+}
+#contacto .half_2 {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+#contacto .half_2 form {
+  background-color: #0004;
+  margin-top: 5%;
+  padding: 5%;
+}
+#contacto .half_2 form * {
+  display: block;
+}
+#contacto .half_2 form .h1 {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #646464;
+}
+#contacto .half_2 form input,
+#contacto .half_2 form textarea {
+  font-size: 1.8em;
+  width: 100%;
+}
+#contacto .half_2 form textarea {
+  font-family: acumin-pro;
 }
 
 
@@ -362,6 +396,10 @@
   .header .logo_header {
     display: none;
   }
+
+  #contacto {
+    height: auto;
+  }
 }
 
 
@@ -434,7 +472,6 @@
   /* Fix #contacto image in mobile devices */
   #contacto {
     background-position-x: 30%;
-    height: auto;
   }
   #contacto .half_1 > div {
     padding-left: 5%;
@@ -450,7 +487,8 @@
     margin-bottom: 15px;
     font-size: 1.5em;
   }
-  #contacto .half_1 div a {
+  #contacto .half_1 div a
+  #contacto .half_1 div form {
     padding: 10px 10px;
   }
   #contacto .half_1 div a span {

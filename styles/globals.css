@@ -4,7 +4,7 @@ body {
   margin: 0;
   /* Font Family */
   font-family: acumin-pro, sans-serif;
-  /* Fix right side blank space */
+  /* Fix right side blank space in mobile devices */
   overflow-x: hidden;
 }
 

@@ -21,13 +21,7 @@ export default function Home(){
       <Head>
         {/* Global site tag (gtag.js) - Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4V7WS9SFB"></script>
-        {`<script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-C4V7WS9SFB');
-        </script>`}
+        <script src="/js/google_analytics.js"></script>
 
         <title>GPS Latam</title>
 
@@ -255,7 +249,7 @@ function ModalCorreo({}){
       ev.preventDefault()
 
       // Validate data
-      form_element = ev.target.parentElement;
+      let form_element = ev.target.parentElement;
       if(
         form_element.checkValidity() &&
         /\S+@\S+\.\S+/.test(form_element[4].value)

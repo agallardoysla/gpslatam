@@ -147,13 +147,6 @@ body { -webkit-animation: bugfix infinite 1s; }
 
 
 /* EMAILJS */
-#email-button,
-#contact-form {
+#modal-correo {
   display: none;
-}
-#c-send {
-  display: inline!important;
-  padding: 7px 15px;
-  background: #d8dadeff;
-  border-radius: 5px;
 }

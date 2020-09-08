@@ -191,7 +191,7 @@ function Pane5({}){
           <span><b>Correo electronico: </b>{ctx_contact.contacto_email}</span>
           <p>Si tienes dudas o sugerencias.</p>
           <a data-focusable="true" target="_blank" href={ctx_contact.link_whatsapp} className={styles.wsp}
-          onClick={() => console.log("SI 1")}>
+          onClick={() => gtag('event', 'click', {'event_category': 'contacto', 'event_label': 'Click en link al chat Whatsapp'})}>
             <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fwsp-icon.png?alt=media&token=59e9e5e6-a49e-4206-8a2b-e45ff1ae58de" />
             <span> Escríbenos al Whatsapp</span>
           </a>
@@ -222,11 +222,11 @@ function Footer({}){
           <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fmail-icon.png?alt=media&token=ab642a9f-61b0-4530-b604-a52eae65306d" alt="Mail icon" /> {ctx_contact.contacto_email}
         </div>
         <div id={styles.social} className={styles.item}>
-          <a target="_blank" href={ctx_contact.fb_page}>
+          <a target="_blank" href={ctx_contact.fb_page} onClick={() => gtag('event', 'click', {'event_category': 'social', 'event_label': 'Click en link facebook'})}>
             <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Ffb-icon.png?alt=media&token=c09882b1-c997-49d0-be89-c50d21e7a51e" alt="Facebook logo" />
           </a>
           &nbsp;|&nbsp;
-          <a target="_blank" href={ctx_contact.ig_page}>
+          <a target="_blank" href={ctx_contact.ig_page} onClick={() => gtag('event', 'click', {'event_category': 'social', 'event_label': 'Click en link instagram'})}>
             <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fig-icon.png?alt=media&token=a681028c-243f-4ace-88ad-2e54806ce695" alt="Instagram logo" />
           </a>
         </div>
@@ -307,7 +307,7 @@ function ModalCorreo({}){
                     <input className={styles.input+" "+styles.flex_display} name="user_email" placeholder="Correo electrónico" autoCapitalize="sentences" autoComplete="on" autoCorrect="on" spellCheck="true" type="text" required />
                   </div>
                   <button id={form_button_id} className={styles.send+" "+styles.form_text}
-                  onClick={() => console.log("SI 3")}>
+                  onClick={() => gtag('event', 'click', {'event_category': 'contacto', 'event_label': 'Click en boton enviar formulario'})}>
                     Enviar
                   </button>
                 </div>

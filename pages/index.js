@@ -8,6 +8,8 @@ const ContactInformation = createContext({
   contacto_email: "gpslatam@gmail.com",
   link_whatsapp: "https://wa.me/+51xxxxxxxxx",
   link_email: "gpslatam@gmail.com",
+  fb_page: "https://www.facebook.com/gaming/AN7HONY96oficial",
+  ig_page: "",
 })
 const HTMLElementsData = createContext({
   open_email_modal: "open-email-modal",
@@ -188,14 +190,16 @@ function Pane5({}){
           <br/>
           <span><b>Correo electronico: </b>{ctx_contact.contacto_email}</span>
           <p>Si tienes dudas o sugerencias.</p>
-          <a data-focusable="true" target="_blank" href={ctx_contact.link_whatsapp} className={styles.wsp}>
+          <a data-focusable="true" target="_blank" href={ctx_contact.link_whatsapp} className={styles.wsp}
+          onClick={() => console.log("SI 1")}>
             <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fwsp-icon.png?alt=media&token=59e9e5e6-a49e-4206-8a2b-e45ff1ae58de" />
             <span> Escríbenos al Whatsapp</span>
           </a>
           <br/><br/>
 
           {/* Checkbox behavior to show contact form */}
-          <a data-focusable="true" className={styles.email} id={ctx_html.open_email_modal}>
+          <a data-focusable="true" className={styles.email} id={ctx_html.open_email_modal}
+          onClick={() => gtag('event', 'click', {'event_category': 'contacto', 'event_label': 'Abrir formulario de contacto por email'})}>
             <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Femail-icon.png?alt=media&token=f18e574f-f544-4807-a775-dde2f8060470" />
             <span> Enviar un correo electrónico</span>
           </a>
@@ -218,11 +222,11 @@ function Footer({}){
           <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fmail-icon.png?alt=media&token=ab642a9f-61b0-4530-b604-a52eae65306d" alt="Mail icon" /> {ctx_contact.contacto_email}
         </div>
         <div id={styles.social} className={styles.item}>
-          <a target="_blank" href="https://www.facebook.com/gaming/AN7HONY96oficial">
+          <a target="_blank" href={ctx_contact.fb_page}>
             <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Ffb-icon.png?alt=media&token=c09882b1-c997-49d0-be89-c50d21e7a51e" alt="Facebook logo" />
           </a>
           &nbsp;|&nbsp;
-          <a target="_blank" href="#instagram">
+          <a target="_blank" href={ctx_contact.ig_page}>
             <img src="https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/LandingPage_GPSLatam%2Fig-icon.png?alt=media&token=a681028c-243f-4ace-88ad-2e54806ce695" alt="Instagram logo" />
           </a>
         </div>
@@ -249,7 +253,7 @@ function ModalCorreo({}){
       ev.preventDefault()
 
       // Validate data
-      let form_element = ev.target.parentElement;
+      let form_element = document.getElementById(styles.formulary)
       if(
         form_element.checkValidity() &&
         /\S+@\S+\.\S+/.test(form_element[4].value)
@@ -302,9 +306,10 @@ function ModalCorreo({}){
                     <div className={styles.required_mark+" "+styles.form_text}>(*)</div>
                     <input className={styles.input+" "+styles.flex_display} name="user_email" placeholder="Correo electrónico" autoCapitalize="sentences" autoComplete="on" autoCorrect="on" spellCheck="true" type="text" required />
                   </div>
-                  <div className={styles.send}>
-                    <div id={form_button_id} className={styles.send_button+" "+styles.form_text}>Enviar</div>
-                  </div>
+                  <button id={form_button_id} className={styles.send+" "+styles.form_text}
+                  onClick={() => console.log("SI 3")}>
+                    Enviar
+                  </button>
                 </div>
               </div>
             </div>

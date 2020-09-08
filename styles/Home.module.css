@@ -318,9 +318,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-#formulary .questions_container .send_button {
-  display: inline;
   font-weight: bold;
   color: white;
 }

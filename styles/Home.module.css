@@ -350,6 +350,7 @@
   background-color: white;
   border-radius: 3px;
   height: 40px;
+  min-width: 0;
   margin-bottom: 20px;
   margin-right: 10px;
   padding-right: 1px;
@@ -511,6 +512,30 @@
 
   #contacto {
     height: auto;
+  }
+
+  /* Fix contact email formulary */
+  .modal_container .modal {
+    height: auto;
+  }
+  #formulary {
+    flex-direction: column;
+    padding-top: 0;
+  }
+  #formulary .formulary_padding_left {
+    padding-left: 0;
+  }
+  #formulary .input_message {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 10px;
+    height: 200px;
+  }
+  .input_container {
+    margin-bottom: 10px;
+  }
+  .input_container .input {
+    font-size: 3vw!important;
   }
 }
 

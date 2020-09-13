@@ -36,6 +36,13 @@ export default function Home(){
         {/* JS */}
         <script src="/js/yt.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+        {/* Facebook pixel */}
+        <script src="/js/facebook_pixel.js">
+        </script>
+        <noscript>
+          <img height="1" width="1" style={{display:"none"}} src="https://www.facebook.com/tr?id=3231614676955338&ev=PageView&noscript=1" />
+        </noscript>
+
       </Head>
 
       {/* Regular body content */}
